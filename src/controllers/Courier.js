@@ -5,7 +5,7 @@ const deliveries = {
    * 
    * @param {object} req 
    * @param {object} res
-   * @returns {object} reflection object 
+   * @returns {object} Parcel object 
    */
   create(req, res) {
     if (!req.body.Name && !req.body.Model && !req.body.From && !req.body.To
@@ -19,7 +19,7 @@ const deliveries = {
    * 
    * @param {object} req 
    * @param {object} res 
-   * @returns {object} reflections array
+   * @returns {object} Parcel array
    */
   getAll(req, res) {
     const all = ParcelsModel.findAll();
@@ -29,7 +29,7 @@ const deliveries = {
    * 
    * @param {object} req 
    * @param {object} res
-   * @returns {object} reflection object
+   * @returns {object} Parcel object
    */
   getOne(req, res) {
     const one = ParcelsModel.findOne(req.params.id);
@@ -42,7 +42,7 @@ const deliveries = {
    * 
    * @param {object} req 
    * @param {object} res 
-   * @returns {object} updated reflection
+   * @returns {object} Parcel reflection
    */
   update(req, res) {
     const update = ParcelsModel.findOne(req.params.id);
