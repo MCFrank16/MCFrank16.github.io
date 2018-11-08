@@ -12,7 +12,7 @@ app.get('/api/v1/Parcels', Parcel.getAll);
 app.get('/api/v1/Parcels/:id', Parcel.getOne);
 app.put('/api/v1/Parcels/:id', Parcel.update);
 app.delete('/api/v1/Parcels/:id', Parcel.delete);
-app.get('api/v1/Users/:UserID', Parcel.getUser);
+app.get('/api/v1/Users/:UserID', Parcel.getUser);
 
 app.listen(9000)
 console.log('app running on port ', 9000);

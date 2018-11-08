@@ -68,7 +68,7 @@ const deliveries = {
   },
     
   getUser(req, res){
-    const user = ParcelsModel.findUser(req.params.UserID);
+    const user = ParcelsModel.findUser(Number.parseInt(req.params.UserID, 10));
       if (!user){
           return res.status(404).send({"message": 'User not found'});
       }
