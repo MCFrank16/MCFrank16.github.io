@@ -1,15 +1,25 @@
 {
-  "name": "node_express_tutorial",
+  "name": "SendIT courier Delivery APP",
   "version": "1.0.0",
-  "description": "node express tutorial",
+  "description": "SendIT courier Delivery APP | Andela developer Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/jasmine/bin/jasmine.js",
+    "test-init": "./node_modules/jasmine/bin/jasmine.js init",
     "build": "babel server.js --out-dir build",
     "dev-start": "babel-watch server.js"
   },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MCFrank16/MCFrank16.github.io.git"
+  },
   "author": "Frank C Mutabazi",
-  "license": "ISC",
+  "license": "MIT",
+    "bugs": {
+    "url": "https://github.com/MCFrank16/MCFrank16.github.io/issues"
+  },
+  "homepage": "https://github.com/MCFrank16/MCFrank16.github.io#readme",
   "dependencies": {
     "express": "^4.16.4",
     "moment": "^2.22.2",
@@ -18,6 +28,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "babel-watch": "^2.0.7"
+    "babel-watch": "^2.0.7",
+    "jasmine": "^3.3.0"
   }
 }
