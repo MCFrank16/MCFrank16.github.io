@@ -42,22 +42,6 @@ chai.use(chaiHttp);
 
       });
 
-      it('should Post a new Parcel', (done) => {
-      
-         chai.request(server)
-         .post('/api/v1/parcels')
-      
-         .end((err,res) => { 
-           
-           res.should.have.status(201);
-           res.body.should.be.a('array');
-           done();
-
-
-         });
-
-      });
-
 	});
 
 
