@@ -22,7 +22,8 @@ class SendIT {
       To: data.To || '',
       NowAt: data.NowAt || '',
       Status: data.Status || '',
-      UserID: data.UserID || ''
+      UserID: data.UserID || '',
+      CreatedAt: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')
     };
     this.parcels.push(newParcel);
     return newParcel

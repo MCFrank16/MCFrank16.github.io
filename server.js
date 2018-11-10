@@ -16,3 +16,5 @@ app.get('/api/v1/Users/:UserID', Parcel.getUser);
 
 app.listen(9000)
 console.log('app running on port ', 9000);
+
+module.exports = app;
