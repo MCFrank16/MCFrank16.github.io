@@ -2,6 +2,7 @@
 process.env.NODE_ENV = "test";
 
 const ParcelsModel = require('../src/models/Courier');
+const ParcelsController = require('../src/controllers/Courier')
 const chai = require('chai');
 const chaiHttp = require('chai-Http');
 const server = require('../server');
@@ -42,7 +43,69 @@ chai.use(chaiHttp);
 
       });
 
-	});
+      });
+    
+    describe('GET /api/v1/parcels/:id', () =>{
+
+    it ('should return a message of no parcel found', (done) => {
+      chai.request(server)
+      .get('/api/v1/Parcels/:id')
+      .end((err, res) => {
+       res.should.have.status(404);
+          res.body.should.have.property('message').eql('Parcel not found');
+          done();
+      });
+
+    });
+
+     }); 
+
+    describe('PUT /api/v1/parcels/:id', () =>{
+
+    it ('should return a message of no parcel found', (done) => {
+      chai.request(server)
+      .put('/api/v1/Parcels/:id')
+      .end((err, res) => {
+       res.should.have.status(404);
+          res.body.should.have.property('message').eql('Parcel not found');
+          done();
+      });
+
+    });
+
+  
+
+     }); 
+
+    describe('DELETE /api/v1/parcels/:id', () =>{
+
+    it ('should return a message of no parcel found', (done) => {
+      chai.request(server)
+      .delete('/api/v1/Parcels/:id')
+      .end((err, res) => {
+       res.should.have.status(404);
+          res.body.should.have.property('message').eql('Parcel not found');
+          done();
+      });
+
+    });
+
+     }); 
+
+    describe('GET /api/v1/Users/:UserID', () =>{
+
+    it ('should return a message of no User found', (done) => {
+      chai.request(server)
+      .get('/api/v1/Users/:UserID')
+      .end((err, res) => {
+       res.should.have.status(404);
+          res.body.should.have.property('message').eql('User not found');
+          done();
+      });
+    });
+
+    });
+
 
 
 
