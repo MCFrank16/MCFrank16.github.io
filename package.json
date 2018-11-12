@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/MCFrank16/MCFrank16.github.io#readme",
   "dependencies": {
+    "chai-uuid": "^1.0.6",
     "moment": "^2.22.2",
     "uuid": "^3.3.2"
   },

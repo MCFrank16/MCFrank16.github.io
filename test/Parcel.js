@@ -6,9 +6,13 @@ const ParcelsController = require('../src/controllers/Courier')
 const chai = require('chai');
 const chaiHttp = require('chai-Http');
 const server = require('../server');
+//const uuid = require('uuid');
 
 
 const should = chai.should();
+const expect = chai.expect;
+
+chai.use(require('chai-uuid'));
 chai.use(chaiHttp);
 
 	// now it is time to test the GET all the parcels 
@@ -21,7 +25,7 @@ chai.use(chaiHttp);
 			.end((err,res) => {
 				res.should.have.status(200);
 				res.body.should.be.a('array');
-				res.body.length.should.be.eql(0);
+				//res.body.length.should.be.eql(0);
 				done();
 			});
 		});
@@ -43,7 +47,24 @@ chai.use(chaiHttp);
 
       });
 
+      it('should create a new parcel', (done) => {
+
+        const body = {"Name":"Iphone", "Model":"99JJh", "From":"Kigali", "To":"Kigali", "NowAt":"Kigali", "Status":"Delivered", "UserID":4}
+        
+        chai.request(server)
+        .post('/api/v1/parcels')
+        .send(body)
+        .end((err,res) => {
+         
+         res.should.have.status(201);
+         done();
+        });
+
       });
+
+
+      });
+
     
     describe('GET /api/v1/parcels/:id', () =>{
 
@@ -58,7 +79,20 @@ chai.use(chaiHttp);
 
     });
 
-     }); 
+    it('should return a parcel based on its ID', (done) =>{
+     
+     chai.request(server)
+     .get('/api/v1/Parcels/e27c3dde-2a57-422f-ada9-f7c267fcc3d0')
+     .end((err,res) => {
+
+      res.should.have.status(200);
+      res.body.should.be.a('object');
+      expect('e27c3dde-2a57-422f-ada9-f7c267fcc3d0').to.be.a.uuid('v4');
+      done();
+
+     });
+    });
+    }); 
 
     describe('PUT /api/v1/parcels/:id', () =>{
 
@@ -71,6 +105,20 @@ chai.use(chaiHttp);
           done();
       });
 
+    });
+
+    it('should Update a parcel based on its ID', (done) =>{
+     
+     chai.request(server)
+     .put('/api/v1/Parcels/e27c3dde-2a57-422f-ada9-f7c267fcc3d0')
+     .end((err,res) => {
+
+      res.should.have.status(200);
+      res.body.should.be.a('object');
+      expect('e27c3dde-2a57-422f-ada9-f7c267fcc3d0').to.be.a.uuid('v4');
+      done();
+
+     });
     });
 
   
@@ -87,10 +135,24 @@ chai.use(chaiHttp);
           res.body.should.have.property('message').eql('Parcel not found');
           done();
       });
-
     });
 
-     }); 
+      it('should Delete a parcel based on its ID', (done) =>{
+     
+     chai.request(server)
+     .delete('/api/v1/Parcels/e27c3dde-2a57-422f-ada9-f7c267fcc3d0')
+     .end((err,res) => {
+
+      res.should.have.status(204);
+      res.body.should.be.a('object');
+      expect('e27c3dde-2a57-422f-ada9-f7c267fcc3d0').to.be.a.uuid('v4');
+      done();
+
+     });
+    });
+
+
+    }); 
 
     describe('GET /api/v1/Users/:UserID', () =>{
 
@@ -102,6 +164,18 @@ chai.use(chaiHttp);
           res.body.should.have.property('message').eql('User not found');
           done();
       });
+    });
+
+    it('should return a user based on UserID', (done) => {
+
+     
+        chai.request(server)
+        .get('/api/v1/Users/4')
+        .end((err, res)=> {
+          res.should.have.status(200);
+          done();
+            
+        });
     });
 
     });

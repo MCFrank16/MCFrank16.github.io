@@ -7,7 +7,15 @@ class SendIT {
    * empty array to store in the parcels
    */
   constructor() {
-    this.parcels = [];
+    this.parcels = [{"id": "e27c3dde-2a57-422f-ada9-f7c267fcc3d0",
+    "Name": "Samsung",
+    "Model": "87gh5",
+    "From": "China - Shanghai",
+    "To": "Kigali - Rwanda",
+    "NowAt": "Kigali",
+    "Status": "In Transit",
+    "UserID": 18,
+    "CreatedAt": "2018-11-12 11:29:21"}];
   }
   /**
    * creation of a new Parcel method
