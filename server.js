@@ -1,6 +1,7 @@
 // server.js
 import Parcel from './src/controllers/Courier';
-import express from 'express';
+//import express from 'express';
+const express = require('express');
 
 const app = express()
 
