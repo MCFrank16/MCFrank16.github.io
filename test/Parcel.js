@@ -4,7 +4,7 @@ process.env.NODE_ENV = "test";
 const ParcelsModel = require('../src/models/Courier');
 const ParcelsController = require('../src/controllers/Courier')
 const chai = require('chai');
-const chaiHttp = require('chai-Http');
+const chaiHttp = require('chai-http');
 const server = require('../server');
 //const uuid = require('uuid');
 
