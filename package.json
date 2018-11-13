@@ -23,7 +23,8 @@
   "dependencies": {
     "chai-uuid": "^1.0.6",
     "moment": "^2.22.2",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "express": "^4.16.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
