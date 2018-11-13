@@ -4,10 +4,12 @@
   "description": "SendIT courier Delivery APP | Andela developer Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require babel-register test/*.js --exit",
+    "test": " nyc mocha --require babel-register test/*.js --exit",
     "build": "babel server.js --out-dir build",
     "dev-start": "babel-watch server.js && SET NODE_ENV=dev",
-    "lint": "eslint"
+    "lint": "eslint",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+
   },
   "repository": {
     "type": "git",
@@ -30,11 +32,13 @@
     "babel-watch": "^2.0.7",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
+    "coveralls": "^3.0.2",
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "express": "^4.16.4",
     "jasmine": "^3.3.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
   }
 }
